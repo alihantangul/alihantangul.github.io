@@ -1,11 +1,19 @@
-<footer class="wrapper">
-    <div class="smallnav">
-    	{% for page in site.pages %}
-        	{% if page.title %}<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a> &bull;{% endif %}
-        {% endfor %}
-    </div>
-    <div>
-        Copyright &copy; <a href="{{ site.url }}/">{{ site.title }}</a>. 2014 &bull; All rights reserved.
-        <span class="ghost">Proudly published with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>.</span>
-    </div>
-</footer>
+    {% if site.copyright or site.email %}
+
+      <footer data-animation="fadeInUp">
+        <div class="copyright">
+          {% if site.copyright %}<b>{{ site.copyright }}</b> All Rights Reserved.{% endif %}
+        	{% if site.email %}<a href="mailto:{{ site.email }}" title="Send E-Mail">Contact</a>{% endif %}
+        	<a href="{{ '/feed.xml' | prepend: site.baseurl }}" title="Subscribe to Feed">RSS</a>
+        </div>
+      </footer>
+      
+    {% endif %}
+    
+    <script src="{{ '/assets/jquery-2.1.1.min.js' | prepend: site.baseurl }}"></script>
+    <script src="{{ '/assets/viewportchecker.js' | prepend: site.baseurl }}"></script>
+    <script src="{{ '/assets/scripts.js' | prepend: site.baseurl }}"></script>
+
+  </body>
+
+</html>
